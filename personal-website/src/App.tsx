@@ -1,5 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import Index from "./pages"
+import React from "react"
+import PageLoader from "./components/common/PageLoader";
+
+const HomePage = React.lazy(() => import("./pages/index"));
+
 
 function App() {
 
@@ -7,7 +11,15 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route
+            path="/"
+            element={
+              <React.Suspense fallback={<PageLoader/>}>
+                <HomePage />
+              </React.Suspense>
+            }
+          >
+          </Route>
           <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
       </BrowserRouter>

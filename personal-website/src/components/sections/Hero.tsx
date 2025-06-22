@@ -17,7 +17,7 @@ const Hero = () => {
                 initial="hidden"
                 animate="visible"
                 variants={fadeInUp}
-                custom={0}
+                custom={4}
             >
                 <ResumeButton resumeLink="/Rahib_KV_Resume.pdf" />
             </motion.div>
@@ -30,22 +30,37 @@ const Hero = () => {
                 className="text-center max-w-xl mx-auto space-y-6 z-20"
             >
                 <motion.p
-                    custom={1}
+                    custom={0}
                     variants={fadeInUp}
                     className="text-4xl md:text-5xl text-beige-muted font-light tracking-wide leading-tight"
                 >
-                    Hey, I’m <span className="text-beige font-semibold">Rahib K V</span> 👋
+                    Hey, I’m <span className="text-beige-accent font-semibold font-mono">Rahib K V</span>
+                    <motion.span
+                        initial={{ rotate: 0 }}
+                        animate={{
+                            rotate: [0, 20, -10, 20, -5, 0],
+                        }}
+                        transition={{
+                            delay: 0.5,
+                            duration: 1.2,
+                            ease: "easeInOut",
+                        }}
+                        className="inline-block origin-[70%_70%]" 
+                    >
+                        👋
+                    </motion.span>
+
                 </motion.p>
 
                 <motion.h1
-                    custom={2}
+                    custom={1}
                     variants={fadeInUp}
-                    className="text-sm md:text-base font-light text-tx-muted tracking-wide"
+                    className="text-sm md:text-base text-beige-muted tracking-wide"
                 >
-                    I build modern web products as a <span className="text-beige">Full Stack Developer</span>.
+                    I build modern web products as a <span className="text-beige-accent font-medium font-mono">Full Stack Developer</span>.
                 </motion.h1>
 
-                <motion.div custom={3} variants={fadeInUp}>
+                <motion.div custom={2} variants={fadeInUp}>
                     <Button as="a" href="#projects">View My Works</Button>
                 </motion.div>
             </motion.div>
@@ -56,7 +71,7 @@ const Hero = () => {
                 initial="hidden"
                 animate="visible"
                 variants={fadeInUp}
-                custom={4}
+                custom={3}
             >
                 <SocialIcons />
             </motion.div>
